@@ -1,0 +1,10 @@
+import express from "express";
+import cors from "cors";
+import publicRouter from "../route/publicRouter.js";
+import image from "../helper/image.js";
+export const web = express();
+web.use(express.json());
+web.use(express.urlencoded({ extended: false }));
+web.use(cors());
+web.get("/image/:imageName", image);
+web.use(publicRouter);
